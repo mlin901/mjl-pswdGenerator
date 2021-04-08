@@ -14,7 +14,8 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// User selection gatherer
+
+// *******User selection gatherer
 function gatherRequirements() {
   var input = prompt("A banner with the strange device...", "What was it?");
   return input;
