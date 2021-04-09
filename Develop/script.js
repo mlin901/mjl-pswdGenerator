@@ -1,7 +1,11 @@
 
 
 console.log(typeof(length));
-var specialCharacters =  " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+var lowerCharacters = "abcdefghijklmnopqrstuvwxyz";
+var upperCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numerals = "0123456789";
+var specialCharacters =  " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+var charSets = [lowerCharacters, upperCharacters, numerals, specialCharacters];
 // console.log(specialCharacters);
 
 // Assignment Code
@@ -10,7 +14,7 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input - FUNCTION (2)
 function writePassword() {
   var requirements = gatherRequirements();
-  var password = generatePassword(requirements);
+  var password = generatePassword(requirements, charSets);
   
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
@@ -82,8 +86,34 @@ function gatherRequirements() {
 }
 
 // ****Password generator - FUNCTION** (4)
-function generatePassword(x) {
-  console.log("********>>>>" + x);
-  return x;
+function generatePassword(settings, characterSets) {
+  console.log("********>>>>" + settings);
+  var newset = [];
+  var pswd = [];
+  if (settings[1] == "yes") {
+    newset.push(characterSets[0])
+  } 
+  if (settings[2] == "yes") {
+    newset.push(characterSets[1])
+  } 
+  if (settings[3] == "yes") {
+    newset.push(characterSets[2])
+  } 
+  if (settings[4] == "yes") {
+    newset.push(characterSets[3])
+  } 
+
+  console.log(newset.length + "xxxxxx");
+
+  // Generate password character-by-character
+  for (i = 0; i < settings[0]; i++) {
+    var set = Math.floor(Math.random() * newset.length);
+    character = newset[set][Math.floor(Math.random() * newset[set].length)];
+    pswd.push(character);
+    
+    // Then generate number from ? to ? to determine which character in chosen set
+  }
+
+   return pswd.join("");
 }
 
