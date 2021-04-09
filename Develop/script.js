@@ -70,6 +70,16 @@ function gatherRequirements() {
     }
   }
   console.log("This is numeric: " + numeric);  //  ****
+
+  // ***need to add Cancel/null possibility
+  while ((special !== "yes") && (special != "no")) {
+    special = prompt("Do you want special characters in the password?", "Yes or No");
+    special = special.toLowerCase();
+    if ((special != "yes") && (special != "no")) {
+      alert("Invalid input. Enter Yes or No.");
+    }
+  }
+  console.log("This is special: " + special);  //  ****
   
   // var special = prompt("Do you want special characters in the password?", "Yes or No");
 
