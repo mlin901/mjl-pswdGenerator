@@ -24,10 +24,10 @@ generateBtn.addEventListener("click", writePassword);
 // ***User selection gatherer - FUNCTION** (3)
 function gatherRequirements() {
   var length = 1;
-  var lowercase = "neither";
-  var uppercase = "neither";
-  var numeric = "neither";
-  var special = "neither";
+  var lowercase = "lowercase";
+  var uppercase = "uppercase";
+  var numeric = "mumeric";
+  var special = "special";
   
   // ***need to add Cancel/null possibility
   // Basic idea of the following is from https://stackoverflow.com/questions/52078896/javascript-prompt-validation-for-integer-input/52079923
@@ -41,45 +41,64 @@ function gatherRequirements() {
   }
   console.log("This is length: " + length);  //  ****
   
-  // ***need to add Cancel/null possibility
-  while ((lowercase !== "yes") && (lowercase != "no")) {
-    lowercase = prompt("Do you want lowercase characters in the password?", "Yes or No");
-    lowercase = lowercase.toLowerCase();
-    if ((lowercase != "yes") && (lowercase != "no")) {
-      alert("Invalid input. Enter Yes or No.");
+  function yesNoQuestion (option) {
+    var answer = "neither";
+    while ((answer !== "yes") && (answer != "no")) {
+      answer = prompt("Do you want " + option + " characters in the password?", "Yes or No");
+      answer = answer.toLowerCase();
+      if ((answer != "yes") && (answer != "no")) {
+        alert("Invalid input. Enter Yes or No.");
+      }
     }
+    console.log("This is the answer for " + option + ":" + answer);  //  ****
+    return answer;
   }
-  console.log("This is lowercase: " + lowercase);  //  ****
+  
+  lowercase = yesNoQuestion(lowercase);
+  lowercase = yesNoQuestion(uppercase);
+  lowercase = yesNoQuestion(numeric);
+  lowercase = yesNoQuestion(special);
+
+
+  // ***need to add Cancel/null possibility
+  // while ((lowercase !== "yes") && (lowercase != "no")) {
+  //   lowercase = prompt("Do you want lowercase characters in the password?", "Yes or No");
+  //   lowercase = lowercase.toLowerCase();
+  //   if ((lowercase != "yes") && (lowercase != "no")) {
+  //     alert("Invalid input. Enter Yes or No.");
+  //   }
+  // }
+  // console.log("This is lowercase: " + lowercase);  //  ****
   
   // ***need to add Cancel/null possibility
-  while ((uppercase !== "yes") && (uppercase != "no")) {
-    uppercase = prompt("Do you want uppercase characters in the password?", "Yes or No");
-    uppercase = uppercase.toLowerCase();
-    if ((uppercase != "yes") && (uppercase != "no")) {
-      alert("Invalid input. Enter Yes or No.");
-    }
-  }
-  console.log("This is uppercase: " + uppercase); //  ****
+  // while ((uppercase !== "yes") && (uppercase != "no")) {
+  //   uppercase = prompt("Do you want uppercase characters in the password?", "Yes or No");
+  //   uppercase = uppercase.toLowerCase();
+  //   if ((uppercase != "yes") && (uppercase != "no")) {
+  //     alert("Invalid input. Enter Yes or No.");
+  //   }
+  // }
+  // console.log("This is uppercase: " + uppercase); //  ****
 
   // ***need to add Cancel/null possibility
-  while ((numeric !== "yes") && (numeric != "no")) {
-    numeric = prompt("Do you want numeric characters in the password?", "Yes or No");
-    numeric = numeric.toLowerCase();
-    if ((numeric != "yes") && (numeric != "no")) {
-      alert("Invalid input. Enter Yes or No.");
-    }
-  }
-  console.log("This is numeric: " + numeric);  //  ****
+  // while ((numeric !== "yes") && (numeric != "no")) {
+  //   numeric = prompt("Do you want numeric characters in the password?", "Yes or No");
+  //   numeric = numeric.toLowerCase();
+  //   if ((numeric != "yes") && (numeric != "no")) {
+  //     alert("Invalid input. Enter Yes or No.");
+  //   }
+  // }
+  // console.log("This is numeric: " + numeric);  //  ****
 
   // ***need to add Cancel/null possibility
-  while ((special !== "yes") && (special != "no")) {
-    special = prompt("Do you want special characters in the password?", "Yes or No");
-    special = special.toLowerCase();
-    if ((special != "yes") && (special != "no")) {
-      alert("Invalid input. Enter Yes or No.");
-    }
-  }
-  console.log("This is special: " + special);  //  ****
+  // while ((special !== "yes") && (special != "no")) {
+  //   special = prompt("Do you want special characters in the password?", "Yes or No");
+  //   special = special.toLowerCase();
+  //   if ((special != "yes") && (special != "no")) {
+  //     alert("Invalid input. Enter Yes or No.");
+  //   }
+  // }
+  // console.log("This is special: " + special);  //  ****
   
   // var special = prompt("Do you want special characters in the password?", "Yes or No");
 
