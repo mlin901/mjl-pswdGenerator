@@ -39,7 +39,7 @@ function gatherRequirements() {
       alert("Invalid length. Must be from 8 to 128");
     }
   }
-  console.log("This is length: " + length);
+  console.log("This is length: " + length);  //  ****
   
   // ***need to add Cancel/null possibility
   while ((lowercase !== "yes") && (lowercase != "no")) {
@@ -49,7 +49,7 @@ function gatherRequirements() {
       alert("Invalid input. Enter Yes or No.");
     }
   }
-  console.log("This is lowercase: " + lowercase);
+  console.log("This is lowercase: " + lowercase);  //  ****
   
   // ***need to add Cancel/null possibility
   while ((uppercase !== "yes") && (uppercase != "no")) {
@@ -59,13 +59,20 @@ function gatherRequirements() {
       alert("Invalid input. Enter Yes or No.");
     }
   }
-  console.log("This is uppercase: " + uppercase);
+  console.log("This is uppercase: " + uppercase); //  ****
 
-
+  // ***need to add Cancel/null possibility
+  while ((numeric !== "yes") && (numeric != "no")) {
+    numeric = prompt("Do you want numeric characters in the password?", "Yes or No");
+    numeric = numeric.toLowerCase();
+    if ((numeric != "yes") && (numeric != "no")) {
+      alert("Invalid input. Enter Yes or No.");
+    }
+  }
+  console.log("This is numeric: " + numeric);  //  ****
   
-  // var numeric = prompt("Do you want numeric characters in the password?", "Yes or No");
   // var special = prompt("Do you want special characters in the password?", "Yes or No");
-  
+
   var requirementsA = [length, lowercase, uppercase, numeric, special]
   return requirementsA;
 }
