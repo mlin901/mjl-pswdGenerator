@@ -55,9 +55,9 @@ function gatherRequirements() {
   }
   
   lowercase = yesNoQuestion(lowercase);
-  lowercase = yesNoQuestion(uppercase);
-  lowercase = yesNoQuestion(numeric);
-  lowercase = yesNoQuestion(special);
+  uppercase = yesNoQuestion(uppercase);
+  numeric = yesNoQuestion(numeric);
+  special = yesNoQuestion(special);
 
 
   // ***need to add Cancel/null possibility
