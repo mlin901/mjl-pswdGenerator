@@ -3,9 +3,9 @@
 var length = 2;
 console.log(typeof(length));
 console.log("BLAH BLAH ");
-// var lowercase = true;
-// var uppercase = true;
-// var numeric = true;
+var lowercase = true;
+var uppercase = true;
+var numeric = true;
 var special = true;
 // var requirements = [length, ]
 var specialCharacters =  " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
@@ -29,36 +29,36 @@ generateBtn.addEventListener("click", writePassword);
 
 // ***User selection gatherer - FUNCTION** (3)
 function gatherRequirements() {
+  var requirementsA = [length, lowercase, uppercase, numeric, special]
   
+  // ***need to add Cancel/nulll possibility
   // Basic idea of the following is from https://stackoverflow.com/questions/52078896/javascript-prompt-validation-for-integer-input/52079923
-  while (length = prompt("Input number: ")) {
+  while (((length < 8) || (length > 128)) || (isNaN(length))) {
+    length = prompt("Input a number, from 8 to 128, which will determine the length of the password.")
     if (isNaN(length)) {
-      alert("Invalid input.");
+      alert("Invalid input. Enter a number from 8 to 128.");
     } else if ((length < 8) || (length > 128)) {
-      alert("Wrong range");
-    }else {
-      alert("Good");
-      return parseInt(length);
+      alert("Invalid length. Must be from 8 to 128");
+    // }else {
+    //   alert("Good");
+      // length = parseInt(length);
+      // return;
     }
   }
   
-
-  // while (((length < 8) || (length > 128)) || (typeof(length) !== "number")) {
-  //   length = prompt("Enter password length, from 8 to 128 characters", "Password length");
-  //   if (typeof(length) != "number") {
-  //     console.log(typeof(length));
-  //     alert("A number, you idiot!")
-  //   } else if ((length < 8) || (length > 128)) {
-  //     alert("In the correct range, you idiot!");
-  //   }
-  // }
-
-  // var lowercase = prompt("Do you want lowercase characters in the password?", "Yes or No");
+  // ***need to add Cancel/nulll possibility
+  while ((lowercase !== "yes") && (lowercase != "no")) {
+    lowercase = prompt("Do you want lowercase characters in the password?", "Yes or No");
+    lowercase = lowercase.toLowerCase();
+    if ((lowercase != "yes") && (lowercase != "no")) {
+      alert("Invalid input. Enter Yes or No.");
+    }
+  }
   // var uppercase = prompt("Do you want uppercase characters in the password?", "Yes or No");
   // var numeric = prompt("Do you want numeric characters in the password?", "Yes or No");
-  // var numeric = prompt("Do you want special characters in the password?", "Yes or No");
+  // var special = prompt("Do you want special characters in the password?", "Yes or No");
   
-  return "blah...";
+  return requirementsA;
 }
 
 // ****Password generator - FUNCTION** (4)
