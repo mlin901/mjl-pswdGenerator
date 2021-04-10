@@ -87,36 +87,24 @@ function gatherRequirements() {
 
 // ****Password generator - FUNCTION** (4)
 function generatePassword(settings, characterSets) {
-  // console.log("********>>>>" + settings);
   var newset = [];
   var pswd = [];
-  // if (settings[1] == "yes") {
-  //   newset.push(characterSets[0])
-  // } 
-  // if (settings[2] == "yes") {
-  //   newset.push(characterSets[1])
-  // } 
-  // if (settings[3] == "yes") {
-  //   newset.push(characterSets[2])
-  // } 
-  // if (settings[4] == "yes") {
-  //   newset.push(characterSets[3])
-  // } 
 
-  // console.log(settings.length + "#########");
-
+  // Build up array of user-selected character sets
   for (i = 1; i < settings.length; i++) {
     console.log(settings[i] + "lskdfja;lsdkfjas;dlfk");
     var newI = i - 1;
-    newset.push(characterSets[newI]);
+    if (settings[i] == "yes") {
+      newset.push(characterSets[newI]);
+    }
   }
 
-
-  // console.log(newset.length + "xxxxxx");
-
-  // Generate password character-by-character
+  // Generate password character-by-character from selected character sets
   for (i = 0; i < settings[0]; i++) {
+    // Randomly determine which of the selected character sets the next character
+    // will be chosen from
     var set = Math.floor(Math.random() * newset.length);
+    // Randomly choose a character from the character set chosen above
     character = newset[set][Math.floor(Math.random() * newset[set].length)];
     pswd.push(character);
     
