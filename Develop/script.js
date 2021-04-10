@@ -99,16 +99,21 @@ function generatePassword(settings, characterSets) {
     }
   }
 
-  // Generate password character-by-character from selected character sets
-  for (i = 0; i < settings[0]; i++) {
-    // Randomly determine which of the selected character sets the next character
-    // will be chosen from
-    var set = Math.floor(Math.random() * newset.length);
-    // Randomly choose a character from the character set chosen above
-    character = newset[set][Math.floor(Math.random() * newset[set].length)];
-    pswd.push(character);
-    
-    // Then generate number from ? to ? to determine which character in chosen set
+  // If the user answered "yes" to any of the prompts for types of characters...
+  if (newset.length){
+    // Generate password character-by-character from selected character sets
+    for (i = 0; i < settings[0]; i++) {
+      // Randomly determine which of the selected character sets the next character
+      // will be chosen from
+      var set = Math.floor(Math.random() * newset.length);
+      // Randomly choose a character from the character set chosen above
+      character = newset[set][Math.floor(Math.random() * newset[set].length)];
+      pswd.push(character);
+      // Then generate number from ? to ? to determine which character in chosen set
+    }
+    // If the user answered "no" to all prompts for types of characters...
+  } else {
+    return "All character options rejected. No password could be generated.";
   }
 
    return pswd.join("");
