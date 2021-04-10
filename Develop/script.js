@@ -1,30 +1,28 @@
 
-
-console.log(typeof(length));
+//Character set variables
 var lowerCharacters = "abcdefghijklmnopqrstuvwxyz";
 var upperCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numerals = "0123456789";
 var specialCharacters =  " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+//Initial array of character sets
 var charSets = [lowerCharacters, upperCharacters, numerals, specialCharacters];
-// console.log(specialCharacters);
 
-// Assignment Code
+// Variable for button (for event listerner below)
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input - FUNCTION (2)
+// Function called by event listener to write password to the #password input
 function writePassword() {
-  var requirements = gatherRequirements();
-  var password = generatePassword(requirements, charSets);
-  
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+  var requirements = gatherRequirements(); //Calls function to prompt user for settings
+  var password = generatePassword(requirements, charSets); //Passes user settings and character sets to password generator
+  var passwordText = document.querySelector("#password"); // Gets password from  
+  passwordText.value = password; 
 }
 
-// Add EVENT LISTENER to generate button - START HERE (1)
+// Event listener for the generate button
 generateBtn.addEventListener("click", writePassword);
 
 
-// ***User selection gatherer - FUNCTION** (3)
+// User selection gatherer - FUNCTION** (3)
 function gatherRequirements() {
   var length = 1;
   var lowercase = "lowercase";
