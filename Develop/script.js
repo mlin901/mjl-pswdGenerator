@@ -87,23 +87,32 @@ function gatherRequirements() {
 
 // ****Password generator - FUNCTION** (4)
 function generatePassword(settings, characterSets) {
-  console.log("********>>>>" + settings);
+  // console.log("********>>>>" + settings);
   var newset = [];
   var pswd = [];
-  if (settings[1] == "yes") {
-    newset.push(characterSets[0])
-  } 
-  if (settings[2] == "yes") {
-    newset.push(characterSets[1])
-  } 
-  if (settings[3] == "yes") {
-    newset.push(characterSets[2])
-  } 
-  if (settings[4] == "yes") {
-    newset.push(characterSets[3])
-  } 
+  // if (settings[1] == "yes") {
+  //   newset.push(characterSets[0])
+  // } 
+  // if (settings[2] == "yes") {
+  //   newset.push(characterSets[1])
+  // } 
+  // if (settings[3] == "yes") {
+  //   newset.push(characterSets[2])
+  // } 
+  // if (settings[4] == "yes") {
+  //   newset.push(characterSets[3])
+  // } 
 
-  console.log(newset.length + "xxxxxx");
+  // console.log(settings.length + "#########");
+
+  for (i = 1; i < settings.length; i++) {
+    console.log(settings[i] + "lskdfja;lsdkfjas;dlfk");
+    var newI = i - 1;
+    newset.push(characterSets[newI]);
+  }
+
+
+  // console.log(newset.length + "xxxxxx");
 
   // Generate password character-by-character
   for (i = 0; i < settings[0]; i++) {
