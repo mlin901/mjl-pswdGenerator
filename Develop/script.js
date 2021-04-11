@@ -25,7 +25,7 @@ function writePassword() {
 }
 
 // Event listener for the generate button
-generateBtn.addEventListener("click", writePassword());
+generateBtn.addEventListener("click", function () {writePassword();});
 
 // Function for yes/no questions (kinds of characters to include)
 function yesNoQuestion (option) {
@@ -67,7 +67,6 @@ function gatherRequirements() {
     } 
   }
   var requirementsA = [];
-  
   for (let index = 0; index < types.length; index++) {
     requirementsA[index] = yesNoQuestion(types[index]);
     if (requirementsA[index] == null) {
@@ -80,7 +79,7 @@ function gatherRequirements() {
   return requirementsA;
 } 
 
-// ****Password generator - FUNCTION** (4)
+// Password generator 
 function generatePassword(settings, characterSets) {
   var newset = [];
   var pswd = [];
