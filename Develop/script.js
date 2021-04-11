@@ -15,7 +15,7 @@ function writePassword() {
   var requirements = gatherRequirements(); //Call function to prompt user for settings
   // If the user hasn't selected any class or character for the password...
   if (requirements == null) {
-    passwordText.value = "Operation cancelled!!!!!!!"
+    passwordText.value = "Operation cancelled"
   // Else, call the password generator function, passing the user's selected character types and
   // the array of possible character sets (all possible character sets--not just user-chosen sets)
   } else {
@@ -70,7 +70,6 @@ function gatherRequirements() {
   for (let index = 0; index < types.length; index++) {
     requirementsA[index] = yesNoQuestion(types[index]);
     if (requirementsA[index] == null) {
-      console.log("blah"); // **************************
       return null;
     }  
   }
